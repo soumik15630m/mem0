@@ -52,7 +52,7 @@ export class MistralLLM implements LLM {
     tools?: any[],
   ): Promise<string | LLMResponse> {
     await this.ensureClient();
-    const response = await this.client.chat.complete({
+    const response = await this.client.chat.complete.create({
       model: this.model,
       messages: messages.map((msg) => ({
         role: msg.role as "system" | "user" | "assistant",
